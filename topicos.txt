@@ -1,0 +1,28 @@
+## Requisitos Funcionais:
+
+
+###Cadastro de Clientes:
+
+1. O sistema deve permitir que um novo cliente seja cadastrado fornecendo informações como nome, endereço, e-mail e telefone.
+Deve haver validação nos campos obrigatórios, como nome e e-mail.
+
+
+###Listagem de Clientes:
+
+2. O sistema deve permitir a visualização de uma lista de todos os clientes cadastrados.
+A lista de clientes deve ser exibida de forma paginada para facilitar a navegação em grandes conjuntos de dados.
+Requisitos Não Funcionais:
+Segurança:
+
+3. O sistema deve garantir a segurança das informações dos clientes, protegendo dados confidenciais contra acesso não autorizado.
+As senhas dos clientes devem ser armazenadas de forma segura, utilizando técnicas como hash e salt.
+
+###Usabilidade:
+
+4. A interface do usuário deve ser intuitiva e fácil de usar, para que os usuários possam cadastrar e visualizar clientes sem dificuldade.
+O sistema deve fornecer feedback claro sobre o sucesso ou falha das operações de cadastro.
+Regras de Negócio:
+Restrições de Cadastro:
+
+5. Os clientes devem fornecer informações obrigatórias, como nome e e-mail, para completar o cadastro.
+O sistema deve verificar se o e-mail fornecido é único, para evitar duplicatas de clientes.
