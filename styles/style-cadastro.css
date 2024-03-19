@@ -50,9 +50,10 @@ fieldset {
 }
 
 legend {
-  font-size: 1.2em;
+  font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 label {
@@ -63,7 +64,9 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="tel"],
+textarea {
   width: calc(100% - 12px);
   padding: 10px;
   margin-bottom: 15px;
