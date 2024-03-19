@@ -1,10 +1,20 @@
 <?php
 include './backend/NewCadastro.php';
 include './backend/ExcluirCadastro.php';
+//inicia a sessão para acessar a variável de sessão
+session_start();
 
-if (isset($_GET['success'])) {
+// verifica se a variável de sessão está definida e exibe a mensagem de sucesso
+if (isset($_SESSION['success_message'])) {
   echo '<script>alert("CLIENTE INSERIDO COM SUCESSO!")</script>';
+  unset($_SESSION['success_message']); // limpa a variável de sessão
 }
+
+if (isset($_SESSION['delete_message'])) {
+  echo "<script>alert('Cliente excluido com sucesso')</script>";
+  unset($_SESSION['delete_message']);
+}
+
 ?>
 
 <!DOCTYPE html>

@@ -35,13 +35,13 @@
 
 
           <label for="endereco">Endereço:</label>
-          <input type="text" name="endereco" id="endereco" required>
+          <input type="text" max="12" name="endereco" id="endereco" required>
 
           <label for="password">Senha:</label>
           <input type="password" name="password" id="password" minlength="8" autocomplete="off" required />
 
-          <label for="descricao">Sobre:</label>
-          <textarea name="descricao" id="descricao" cols="65" rows="10" maxlength="1200" placeholder="Escreva aqui..."></textarea>
+          <label for="password">Confirmar Senha:</label>
+          <input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="off" required />
 
           <button type="submit" class="button-cadastrar" name="acao"> Cadastrar Cliente <img src="../assets/icon-adicao.svg" alt="icon adição"></button>
 

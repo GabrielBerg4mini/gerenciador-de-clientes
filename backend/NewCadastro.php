@@ -69,7 +69,9 @@ if (isset($_POST['acao'])) {
 
     //executando a consulta SQL
     if ($sql->execute([$cliente->nome, $cliente->email, $cliente->getSenhaHash(), $cliente->telefone, $cliente->endereco, $cliente->descricao])) {
-        header("Location: ../index.php?success=1"); //redireciona para index.php com parâmetro de sucesso
+        session_start(); // inicia a sessão
+        $_SESSION['sucess_message'] = true; // define a variável para indicar sucesso
+        header("Location: ../index.php"); //redireciona para index.php com parâmetro de sucesso
         exit(); //encerra o script para evitar execução adicional
 
     } else {
