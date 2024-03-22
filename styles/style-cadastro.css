@@ -95,3 +95,7 @@ input[type="password"]:focus {
   vertical-align: middle;
   margin-left: 0.5rem;
 }
+.message-error {
+  color: red;
+  margin-bottom: 2rem;
+}

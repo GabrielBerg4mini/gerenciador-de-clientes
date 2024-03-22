@@ -1,10 +1,20 @@
 <?php
 include './backend/NewCadastro.php';
 include './backend/ExcluirCadastro.php';
+//inicia a sessão para acessar a variável de sessão
+session_start();
 
-if (isset($_GET['success'])) {
+// verifica se a variável de sessão está definida e exibe a mensagem de sucesso
+if (isset($_SESSION['success_message'])) {
   echo '<script>alert("CLIENTE INSERIDO COM SUCESSO!")</script>';
+  unset($_SESSION['success_message']); // limpa a variável de sessão
 }
+
+if (isset($_SESSION['delete_message'])) {
+  echo "<script>alert('Cliente excluido com sucesso')</script>";
+  unset($_SESSION['delete_message']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +47,7 @@ if (isset($_GET['success'])) {
           <th>Email</th>
           <th>Telefone</th>
           <th>Endereço</th>
-          <th>Descrição</th>
+
         </thead>
         <tbody>
           <?php
@@ -46,8 +56,7 @@ if (isset($_GET['success'])) {
               <td><?= $cliente['nome'] ?> </td>
               <td><?= $cliente['email'] ?></td>
               <td><?= $cliente['telefone'] ?> </td>
-              <td><?= $cliente['endereco'] ?></td>
-              <td><?= $cliente['descricao'] ?> <a href="./index.php?delete&id=<?= $cliente['id'] ?>"><button type="submit">Deletar</button></a></td>
+              <td class="delete"><?= $cliente['endereco'] ?> <a href="./index.php?delete&id=<?= $cliente['id'] ?>"><button type="submit">Deletar</button></a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>
