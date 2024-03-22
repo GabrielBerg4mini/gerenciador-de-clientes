@@ -33,12 +33,8 @@ if (isset($_POST['acao'])) {
     $sql = $pdo->prepare("INSERT INTO `tb.clientes`(`nome`,`email`, `senha`, `telefone`, `endereco`) VALUES (?, ?, ?, ?, ?) ");
 
     //executando a consulta SQL
-<<<<<<< HEAD
     if ($sql->execute([$cliente->nome, $cliente->email, $cliente->getSenhaHash(), $cliente->telefone, $cliente->endereco])) {
 
-=======
-    if ($sql->execute([$cliente->nome, $cliente->email, $cliente->getSenhaHash(), $cliente->telefone, $cliente->endereco, $cliente->descricao])) {
->>>>>>> 21ba893c4339cb49ad005e11c7f3e1e3978116e9
         session_start(); // inicia a sessão
         $_SESSION['sucess_message'] = true; // define a variável para indicar sucesso
         header("Location: ../index.php"); //redireciona para index.php com parâmetro de sucesso
