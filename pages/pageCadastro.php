@@ -48,13 +48,21 @@ include '../backend/NewCadastro.php';
 
 
           <label for="endereco">Endereço:</label>
+<<<<<<< HEAD
           <input type="text" max="12" name="endereco" id="endereco">
+=======
+          <input type="text" max="12" name="endereco" id="endereco" required>
+>>>>>>> 21ba893c4339cb49ad005e11c7f3e1e3978116e9
 
           <label for="password">Senha:</label>
           <input type="password" name="password" id="password" minlength="8" autocomplete="off" />
 
           <label for="password">Confirmar Senha:</label>
+<<<<<<< HEAD
           <input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="off" />
+=======
+          <input type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="off" required />
+>>>>>>> 21ba893c4339cb49ad005e11c7f3e1e3978116e9
 
           <button type="submit" class="button-cadastrar" name="acao"> Cadastrar Cliente <img src="../assets/icon-adicao.svg" alt="icon adição"></button>
 
