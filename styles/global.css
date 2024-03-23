@@ -9,6 +9,7 @@
   --color-buttonCadastro: rgb(14, 186, 14);
   --color-buttonVoltar: rgb(78, 78, 163);
   --color-blue1: rgb(78, 28, 163);
+  --color-buttonDisibled: rgb(163, 78, 78);
   --color-white: #fff;
 }
 main {

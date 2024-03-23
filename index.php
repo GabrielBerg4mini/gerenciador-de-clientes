@@ -1,6 +1,8 @@
 <?php
 include './backend/NewCadastro.php';
 include './backend/ExcluirCadastro.php';
+include './backend/Paginacao.php';
+
 //inicia a sessão para acessar a variável de sessão
 session_start();
 
@@ -51,7 +53,7 @@ if (isset($_SESSION['delete_message'])) {
         </thead>
         <tbody>
           <?php
-          foreach ($clientes as $cliente) : ?>
+          foreach ($clientsToDisplay as $cliente) : ?>
             <tr>
               <td><?= $cliente['nome'] ?> </td>
               <td><?= $cliente['email'] ?></td>
@@ -60,8 +62,22 @@ if (isset($_SESSION['delete_message'])) {
             </tr>
           <?php endforeach; ?>
         </tbody>
-      </table>
 
+      </table>
+      <article class="pagination">
+
+
+        <a class="buttons <?= $page == 1 ? 'disabled' : '' ?>" href="?page=<?= max(1, $page - 1) ?>">Voltar</a>
+
+
+        <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+          <a href="?page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>"><?= $i ?></a>
+        <?php endfor; ?>
+
+
+        <a class="buttons <?= $page == $totalPages ? 'disabled' : '' ?>" href="?page= <?= min($totalPages, $page + 1) ?>">Avançar</a>
+
+      </article>
     </section>
 
   </main>

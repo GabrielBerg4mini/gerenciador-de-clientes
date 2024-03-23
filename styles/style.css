@@ -52,3 +52,21 @@ td {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.pagination {
+  margin-top: 1rem;
+}
+.pagination a {
+  background: var(--color-green1);
+  color: var(--color-black);
+  padding: 0.2rem 1rem;
+  border-radius: 0.2rem;
+}
+.pagination a.active {
+  background: var(--color-green1);
+  color: var(--color-white);
+}
+a.disabled {
+  background: var(--color-buttonDisibled);
+  color: var(--color-white);
+  pointer-events: none;
+}

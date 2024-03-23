@@ -1,11 +1,11 @@
 <?php
-//Classe cliente
-include 'Cliente.php';
 
 //Conexão com o banco de dados
 $pdo = new PDO("mysql:host=localhost;dbname=gerenciador-de-clientes", 'root', '');
 
-
+//Classe cliente
+include 'Cliente.php';
+include_once 'DbClientes.php';
 
 
 if (isset($_POST['acao'])) {
@@ -29,6 +29,11 @@ if (isset($_POST['acao'])) {
         exit;
     }
 
+    if (emailExists($_POST['email'])) {
+        header("Location: ../pages/pageCadastro.php?error= Email já cadastrado.");
+        exit;
+    }
+
     //preparando a consulta SQL para inserir o cliente no banco de dados
     $sql = $pdo->prepare("INSERT INTO `tb.clientes`(`nome`,`email`, `senha`, `telefone`, `endereco`) VALUES (?, ?, ?, ?, ?) ");
 
@@ -45,10 +50,5 @@ if (isset($_POST['acao'])) {
     }
 }
 
-
-//Recuperar todos os clientes do banco de dados
-
-$sql = $pdo->prepare("SELECT * FROM `tb.clientes`");
-$sql->execute();
-
-$clientes = $sql->fetchAll();
+//Recuperar todos os clientes do banco de dados usando a função getClientes
+$clientes = getClientes();
