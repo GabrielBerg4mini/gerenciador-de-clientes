@@ -3,17 +3,13 @@ include_once 'DbClientes.php';
 
 $clientes = getClientes();
 
-//acessando o banco de dados
 $pdo = new PDO('mysql:host=localhost;dbname=gerenciador-de-clientes', 'root', '');
 
-//preparando a consulta SQL para recuperar todos os clientes
+
 $sql = $pdo->prepare('SELECT * FROM `tb.clientes`');
-//executando a consulta SQL
 $sql->execute();
-//buscando todos os clientes
 $clients = $sql->fetchAll();
 
-// numero de clientes por pg
 $clientsPerPage = 10;
 
 // Obtendo o número da página atual da string de consulta
