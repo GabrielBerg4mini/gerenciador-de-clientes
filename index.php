@@ -1,7 +1,7 @@
 <?php
-include './backend/NewCadastro.php';
-include './backend/ExcluirCadastro.php';
-include './backend/Paginacao.php';
+include __DIR__ . '/./controllers/NewCadastro.php';
+include __DIR__ . '/./backend/ExcluirCadastro.php';
+include __DIR__ . '/./backend/Paginacao.php';
 
 //inicia a sessão para acessar a variável de sessão
 session_start();

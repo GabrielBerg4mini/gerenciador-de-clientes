@@ -1,6 +1,6 @@
 <?php
 
-include '../backend/NewCadastro.php';
+include __DIR__ . '/../controllers/NewCadastro.php';
 
 ?>
 
@@ -28,7 +28,7 @@ include '../backend/NewCadastro.php';
   <main>
 
     <section id="containerAdiocionarCadastro">
-      <form action="../backend/NewCadastro.php" method="post">
+      <form action="../controllers/NewCadastro.php" method="post">
         <fieldset>
           <legend>Dados do cliente</legend>
 

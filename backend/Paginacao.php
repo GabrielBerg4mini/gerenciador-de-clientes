@@ -1,12 +1,12 @@
 <?php
-include_once 'DbClientes.php';
+include   __DIR__ . '/../database/database.php';
+include_once __DIR__ .  '/../middlewares/global.middlewares.php';
 
 $clientes = getClientes();
 
-$pdo = new PDO('mysql:host=localhost;dbname=gerenciador-de-clientes', 'root', '');
 
 
-$sql = $pdo->prepare('SELECT * FROM `tb.clientes`');
+$sql = $conectionDataBase->prepare('SELECT * FROM `tb.clientes`');
 $sql->execute();
 $clients = $sql->fetchAll();
 

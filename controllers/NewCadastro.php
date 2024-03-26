@@ -1,11 +1,11 @@
 <?php
 
 //Conexão com o banco de dados
-$pdo = new PDO("mysql:host=localhost;dbname=gerenciador-de-clientes", 'root', '');
+include __DIR__ . '/../database/database.php';
 
 //Classe cliente
-include 'Cliente.php';
-include_once 'DbClientes.php';
+include __DIR__ . '/../models/Cliente.php';
+include_once __DIR__ . '/../middlewares/global.middlewares.php';
 
 
 if (isset($_POST['acao'])) {
@@ -20,22 +20,11 @@ if (isset($_POST['acao'])) {
     );
 
 
-    if (empty($nome) || empty($email) || empty($password) || empty($endereco) || empty($telefone)) {
-        header(("Location: ../pages/pageCadastro.php?error= Os campo precisam estar preenchidos."));
-        exit;
-    }
-    if ($_POST['password'] !== $_POST['passwordConfirm']) {
-        header("Location: ../pages/pageCadastro.php?error= As senhas precisam ser iguais.");
-        exit;
-    }
-
-    if (emailExists($_POST['email'])) {
-        header("Location: ../pages/pageCadastro.php?error= Email já cadastrado.");
-        exit;
-    }
+    //valida os dados do formulário
+    validUser();
 
     //preparando a consulta SQL para inserir o cliente no banco de dados
-    $sql = $pdo->prepare("INSERT INTO `tb.clientes`(`nome`,`email`, `senha`, `telefone`, `endereco`) VALUES (?, ?, ?, ?, ?) ");
+    $sql = $conectionDataBase->prepare("INSERT INTO `tb.clientes`(`nome`,`email`, `senha`, `telefone`, `endereco`) VALUES (?, ?, ?, ?, ?) ");
 
     //executando a consulta SQL
     if ($sql->execute([$cliente->nome, $cliente->email, $cliente->getSenhaHash(), $cliente->telefone, $cliente->endereco])) {
