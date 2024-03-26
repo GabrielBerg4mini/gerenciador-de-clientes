@@ -1,0 +1,72 @@
+@import url("global.css");
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: beige;
+}
+
+.button-cadastro {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-buttonCadastro);
+  color: var(--color-white);
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background 0.5s;
+}
+.button-cadastro:hover {
+  background: var(--color-green1);
+  transition: background 0.5s;
+}
+.button-cadastro img {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+#containerCadastros {
+  width: 100%;
+  margin-top: 1rem;
+  background: beige;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  text-align: center;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+}
+.delete {
+  border-top: none;
+  border-left: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.pagination {
+  margin-top: 1rem;
+}
+.pagination a {
+  background: var(--color-green1);
+  color: var(--color-black);
+  padding: 0.2rem 1rem;
+  border-radius: 0.2rem;
+}
+.pagination a.active {
+  background: var(--color-green1);
+  color: var(--color-white);
+}
+a.disabled {
+  background: var(--color-buttonDisibled);
+  color: var(--color-white);
+  pointer-events: none;
+}
