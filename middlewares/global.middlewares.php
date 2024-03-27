@@ -17,7 +17,7 @@ function clientFunction($data)
 
 function validUser($data)
 {
-    $cliente = clientFunction($data);
+    clientFunction($data);
 
     //condiação se não estiver preenchido os campos
     if (empty($data['nome']) || empty($data['email']) || empty($data['password']) || empty($data['endereco']) || empty($data['telefone'])) {
