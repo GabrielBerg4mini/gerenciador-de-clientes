@@ -18,7 +18,6 @@ if (isset($_SESSION['delete_message'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 

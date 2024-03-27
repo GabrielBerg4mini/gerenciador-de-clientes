@@ -2,11 +2,11 @@
 
 class Cliente
 {
-    public $nome;
-    public $email;
-    public $endereco;
-    public $telefone;
-    private $senha_hash;
+    private $nome;
+    private $email;
+    private $endereco;
+    private $telefone;
+    private $senhaHash;
 
     public function __construct($nome, $email, $senha, $endereco, $telefone)
     {
@@ -14,17 +14,17 @@ class Cliente
         $this->email = strip_tags($email);
         $this->endereco = strip_tags($endereco);
         $this->telefone = $telefone; // Não use strip_tags para o telefone
-        $this->senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        $this->senhaHash = password_hash($senha, PASSWORD_DEFAULT);
     }
 
     public function getSenhaHash()
     {
-        return  $this->senha_hash;
+        return  $this->senhaHash;
     }
 
     public function verificarSenha($senha)
     {
-        return password_verify($senha, $this->senha_hash);
+        return password_verify($senha, $this->senhaHash);
     }
 
     public function getInformacoes()

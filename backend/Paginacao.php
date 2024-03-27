@@ -1,6 +1,9 @@
 <?php
-include   __DIR__ . '/../database/database.php';
+include_once   __DIR__ . '/../database/database.php';
 include_once __DIR__ .  '/../middlewares/global.middlewares.php';
+
+$db = new Database();
+$conectionDataBase = $db->getConnection();
 
 $clientes = getClientes();
 

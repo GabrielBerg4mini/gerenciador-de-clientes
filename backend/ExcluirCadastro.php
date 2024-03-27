@@ -1,5 +1,8 @@
 <?php
-include __DIR__ . '/../database/database.php';
+include_once __DIR__ . '/../database/database.php';
+
+$db = new Database();
+$conectionDataBase = $db->getConnection();
 
 if (isset($_GET['id'])) {
     //obtendo o id do clietne da url
@@ -11,7 +14,7 @@ if (isset($_GET['id'])) {
         // Cliente excluído com sucesso
         session_start();
         $_SESSION['delete_message'] = true;
-        header("Location: index.php");
+        header("Location: ./index.php");
         exit();
     } else {
         // Falha ao excluir o cliente
