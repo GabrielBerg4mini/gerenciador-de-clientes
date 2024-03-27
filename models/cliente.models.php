@@ -8,7 +8,7 @@ class Cliente
     private $telefone;
     private $senhaHash;
 
-    public function __construct($nome, $email, $senha, $endereco, $telefone)
+    public function __construct($nome = null, $email = null, $senha = null, $endereco = null, $telefone = null)
     {
         $this->nome = strip_tags($nome);
         $this->email = strip_tags($email);
@@ -17,6 +17,22 @@ class Cliente
         $this->senhaHash = password_hash($senha, PASSWORD_DEFAULT);
     }
 
+    public function getNome()
+    {
+        return $this->nome;
+    }
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
     public function getSenhaHash()
     {
         return  $this->senhaHash;
@@ -25,15 +41,5 @@ class Cliente
     public function verificarSenha($senha)
     {
         return password_verify($senha, $this->senhaHash);
-    }
-
-    public function getInformacoes()
-    {
-        return array(
-            'nome' => $this->nome,
-            'email' => $this->email,
-            'telefone' => $this->telefone,
-            'endereco' => $this->endereco
-        );
     }
 }

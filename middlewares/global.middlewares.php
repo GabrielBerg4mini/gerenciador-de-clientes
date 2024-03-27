@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../database/database.php';
-require_once __DIR__ . '/../models/Cliente.php';
+require_once __DIR__ . '/../models/cliente.models.php';
 
 function dbFunction()
 {
@@ -69,6 +69,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         'endereco' => $_POST['endereco'] ?? '',
         'telefone' => $_POST['telefone'] ?? ''
     ];
-
-    validUser($data);
 }

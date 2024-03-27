@@ -1,6 +1,6 @@
 <?php
-include __DIR__ . '/./controllers/NewCadastro.php';
-include __DIR__ . '/./backend/ExcluirCadastro.php';
+include __DIR__ . '/./controllers/auth.controllers.php';
+include __DIR__ . '/./controllers/delete.cliente.controllers.php';
 include __DIR__ . '/./backend/Paginacao.php';
 
 //inicia a sessão para acessar a variável de sessão
@@ -12,9 +12,10 @@ if (isset($_SESSION['success_message'])) {
   unset($_SESSION['success_message']); // limpa a variável de sessão
 }
 
-if (isset($_SESSION['delete_message'])) {
-  echo "<script>alert('Cliente excluido com sucesso')</script>";
-  unset($_SESSION['delete_message']);
+$deleteCliente = new ClienteControllerDelete();
+
+if (isset($_GET['id'])) {
+  $deleteCliente->deleteCliente($_GET['id']);
 }
 
 ?>
@@ -40,6 +41,15 @@ if (isset($_SESSION['delete_message'])) {
       <img src="./assets/icon-adicao.svg" alt="icon adição" /></a>
   </header>
   <main>
+
+    <?php if (isset($_SESSION['delete_message'])) : ?>
+      <div class="alert alert-success">
+        Cliente excluído com sucesso!
+      </div>
+      <?php unset($_SESSION['delete_message']); // limpa a variável de sessão 
+      ?>
+    <?php endif; ?>
+
     <section id="containerCadastros">
 
       <table>
